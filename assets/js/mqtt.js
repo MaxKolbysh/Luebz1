@@ -65,8 +65,11 @@ function onConnectionLost(response) {
 
 
 /*
+
 const topicArray = [];   
 topicArray.push(topic);   // array for tests 
+
+
 $(document).ready(function(){
     let i =1; 
     $("#hotspottopic").change(function(){
@@ -77,13 +80,17 @@ $(document).ready(function(){
             i++;
             $("#sensor-container").prepend(i);
             
+
             
         }else {
             console.log("not right name");
         }
+
+
       
     });
   });
+
 */
 
 
@@ -98,14 +105,13 @@ function onMessageArrived(message) {
 
     
     
+    $('[data-sensorId="sensor-1"]').html(topic);
     
-   
     
 
-
+    $('[data-sensorval="sensor-1"]').html(payload );
    
-
-
+   
    
    
     console.log("Topic: " + topic + ", Message payload: " + payload);
@@ -119,12 +125,7 @@ function onMessageArrived(message) {
     $('#mqttdata').html('Temp is: ' +payload + ' °C');
     $('#mqttdatadinamic').html('Temp is: ' +payload + ' °C');
     
-    $('[data-sensorId="sensor-1"]').html(topic);
-    $('[data-sensorId="sensor-2"]').html(topic2);
-    
-
-    $('[data-sensorval="sensor-1"]').html(payload );
-    $('[data-sensorval="sensor-2"]').html(payload );
+  
     
 	
     /*
@@ -142,12 +143,16 @@ function onMessageArrived(message) {
 /*
 function drawChart(data) {
     let ctx = document.getElementById("chart").getContext("2d");
+
+
     let temperatures = []
     let timestamps = []
+
     data.map((entry) => {
         temperatures.push(entry.temperature);
         timestamps.push(entry.timestamp);
     });
+
     let chart = new Chart(ctx, {
         type: 'line',
         data: {
@@ -174,3 +179,4 @@ $(document).ready(function () {
   /* drawChart(tempData); */ 
     MQTTconnect();
 });
+
